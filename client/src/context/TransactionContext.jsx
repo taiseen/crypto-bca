@@ -69,7 +69,8 @@ export const TransactionsProvider = ({ children }) => {
     // this function call inside useEffect() for execution at onMount of this component...
     const checkIfWalletIsConnect = async () => {
         try {
-            if (!ethereum) return alert(`Please install MetaMask... from your browser addons marketplace`);
+            if (!ethereum) return alert(`🟥 Please install MetaMask... 
+🟥 from your browser addons marketplace...`);
 
             const accounts = await ethereum.request({ method: "eth_accounts" });
 
@@ -107,7 +108,8 @@ export const TransactionsProvider = ({ children }) => {
     // this function call use at user click on button from jsx|ui to connect wallet 
     const connectWallet = async () => {
         try {
-            if (!ethereum) return alert(`Please install MetaMask... from your browser addons marketplace`);
+            if (!ethereum) return alert(`🟥 Please install MetaMask... 
+🟥 from your browser addons marketplace...`);
 
             const accounts = await ethereum.request({ method: "eth_requestAccounts", });
 
@@ -116,7 +118,7 @@ export const TransactionsProvider = ({ children }) => {
             window.location.reload();
         } catch (error) {
             console.log(error);
-            alert(error.message);
+            alert(`❌ ${error.message} ❌`);
             throw new Error("No ethereum object");
         }
     };

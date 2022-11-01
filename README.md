@@ -53,6 +53,7 @@ git remote -v
 git remote remove origin
 git remote -v 
 git remote add origin https://github.com/taiseen/crypto-bca.git
-git remote -v 
+git remote -v
+git push -u origin main
 ```
 
