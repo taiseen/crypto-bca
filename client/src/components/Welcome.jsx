@@ -1,29 +1,31 @@
-// import { TransactionContext } from "../context/TransactionContext";
-// import { shortenAddress } from "../utils/shortenAddress";
+import { useTransactionContext } from "../context/TransactionContext";
+import { shortenAddress } from "../utils/shortenAddress";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { SiEthereum } from "react-icons/si";
-import { useContext } from "react";
 import { Loader, Input } from "."
 
 
 const Welcome = () => {
 
+  const { connectWallet, currentAccount, handleChange, formData, sendTransaction } = useTransactionContext();
   const companyCommonStyles = "sm:px-0 px-2 sm:min-w-[120px] min-h-[70px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
-  const handleChange = () => {
 
-  }
-
-  const handleSubmit = (e) => {
-    const { addressTo, amount, keyword, message } = formData;
-
+  // when user click ==> send now <== button...
+  // this is for checking function for user input...
+  // checking that user give all input value or not? 
+  // then send transaction start processing...
+  const handleSubmit = e => {
     e.preventDefault();
 
-    if (!addressTo || !amount || !keyword || !message) return;
+    const { addressTo, amount, keyword, message } = formData;
+
+    if (!addressTo || !amount || !keyword || !message) return alert('Please provide all values...');
 
     sendTransaction();
   };
+
 
   return (
     <div className="w-full flex justify-center items-center">
@@ -41,10 +43,10 @@ const Welcome = () => {
           </p>
 
           {
-            !false && (
+            !currentAccount && (
               <button
                 type="button"
-                // onClick={connectWallet}
+                onClick={connectWallet}
                 className="flex flex-row justify-center items-center my-5 bg-blue p-3 rounded-full cursor-pointer hover:bg-blueHover"
               >
                 <AiFillPlayCircle className="mr-2" />
@@ -55,7 +57,7 @@ const Welcome = () => {
             )
           }
 
-          {/* Responsive Grid Table */}
+          {/* --|--|-- Responsive Grid Table */}
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`${companyCommonStyles} rounded-tl-2xl border-b-0`}>
               Reliability
@@ -100,8 +102,7 @@ const Welcome = () => {
 
               <div>
                 <p className="text-white font-light text-sm pl-0.5">
-                  Address
-                  {/* {shortenAddress(currentAccount)} */}
+                  Address:- {shortenAddress(currentAccount)}
                 </p>
                 <p className="text-gray-200 font-semibold text-lg mt-1">
                   Ethereum
@@ -129,7 +130,7 @@ const Welcome = () => {
                 : (
                   <button
                     type="button"
-                    // onClick={handleSubmit}
+                    onClick={e => handleSubmit(e)}
                     className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-md cursor-pointer duration-200"
                   >
                     Send now

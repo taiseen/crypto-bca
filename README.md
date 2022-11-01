@@ -2,7 +2,7 @@
 
 # React + Tailwind CSS
 
-## Crypto | Web-3 | Blockchain Wallet App | [Live Link](https://krypt-bca.netlify.app)
+## Crypto | Web-3 | Blockchain Wallet App | [Live Link](https://crypto-bca.netlify.app)
 
 ## Yarn base dependence:-
 ```
@@ -45,4 +45,14 @@ For smart contract :-
 
 <!-- https://youtu.be/Wn_Kb3MR_cU -->
 <!-- github.com/adrianhajdin/project_web3.0 -->
+
+
+
+```
+git remote -v 
+git remote remove origin
+git remote -v 
+git remote add origin https://github.com/taiseen/crypto-bca.git
+git remote -v 
+```
 

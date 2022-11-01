@@ -10,7 +10,7 @@ const main = async () => {
   // contract deployed...
   await transactionsContract.deployed();
   // ? but for deploying our contract we need some amount of ethereum in our digital wallet
-  // ? every thing in ethereum network is required known as  gas
+  // ? every thing in ethereum network is required known as gas
   // ? small fraction of ethereum is use to make something happen
   // ? so we How to fund the gas to test the ethereum... for the deployment of our contract at blockchain network
   // ? answers is now ==> Matamask ==> goerli faucet
