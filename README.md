@@ -38,6 +38,7 @@ For smart contract :-
 * custom colors + style add at tailwind config file
 * small responsive grid table with responsive border rounded
 * using of gradient from custom gradient generators
+* string address cutter ..... representation utility
 
 
 ### Gradient Color Generator

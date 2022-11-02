@@ -8,7 +8,10 @@ import { Loader, Input } from "."
 
 const Welcome = () => {
 
-  const { connectWallet, currentAccount, handleChange, formData, sendTransaction } = useTransactionContext();
+  // get these data from context api...
+  const { connectWallet, currentAccount, handleChange, formData, sendTransaction, isLoading } = useTransactionContext();
+  console.log(isLoading)
+  // css style apply by tailwind...
   const companyCommonStyles = "sm:px-0 px-2 sm:min-w-[120px] min-h-[70px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 
@@ -124,8 +127,7 @@ const Welcome = () => {
             <div className="h-[1px] w-full bg-gray-400 my-2" />
 
             {
-              // isLoading
-              false
+              isLoading
                 ? <Loader />
                 : (
                   <button

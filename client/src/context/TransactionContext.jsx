@@ -33,7 +33,6 @@ export const TransactionsProvider = ({ children }) => {
     const [formData, setFormData] = useState({ addressTo: "", amount: "", keyword: "", message: "" });
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
 
-
     const handleChange = (e, name) => {
         setFormData(prev => ({ ...prev, [name]: e.target.value }));
     };
@@ -77,7 +76,7 @@ export const TransactionsProvider = ({ children }) => {
             if (accounts.length) {
                 // every single render have access our account...
                 setCurrentAccount(accounts[0]);
-                
+
                 // get all the transactions...
                 getAllTransactions();
             } else {
@@ -128,12 +127,15 @@ export const TransactionsProvider = ({ children }) => {
         try {
             if (ethereum) {
                 const { addressTo, amount, keyword, message } = formData;
+                // console.log(formData);
                 
                 // get method from solidity 📜📜📜 contract... 🤝🤝🤝 file of (.sol)
                 const transactionsContract = createEthereumContract();
-                
+
+                // convert amount value that illegible to ethereum network 
                 const parsedAmount = ethers.utils.parseEther(amount);
 
+                // sending ethereum ==> one address to another address
                 await ethereum.request({
                     method: "eth_sendTransaction",
                     params: [{
@@ -144,6 +146,8 @@ export const TransactionsProvider = ({ children }) => {
                     }],
                 });
 
+                // add to blockchain & return hash value of that block... 
+                // & for execution all of these its take some time...
                 const transactionHash = await transactionsContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
 
                 setIsLoading(true);
@@ -183,13 +187,13 @@ export const TransactionsProvider = ({ children }) => {
                 isLoading,
                 sendTransaction,
                 handleChange,
-                formData, 
+                formData,
             }}
         >
             {children}
         </TransactionContext.Provider>
     );
-    
+
 };
 
 
