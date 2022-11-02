@@ -1,3 +1,4 @@
+export { default as TransactionsCard } from "./TransactionsCard";
 export { default as Transactions } from "./Transactions";
 export { default as ServiceCard } from "./ServiceCard";
 export { default as Services } from "./Services";

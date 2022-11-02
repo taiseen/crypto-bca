@@ -54,7 +54,7 @@ export const TransactionsProvider = ({ children }) => {
                     amount: parseInt(transaction.amount._hex) / (10 ** 18)
                 }));
 
-                console.log(structuredTransactions);
+                console.log(availableTransactions);
 
                 setTransactions(structuredTransactions);
             } else {
@@ -128,7 +128,7 @@ export const TransactionsProvider = ({ children }) => {
             if (ethereum) {
                 const { addressTo, amount, keyword, message } = formData;
                 // console.log(formData);
-                
+
                 // get method from solidity 📜📜📜 contract... 🤝🤝🤝 file of (.sol)
                 const transactionsContract = createEthereumContract();
 
@@ -165,6 +165,7 @@ export const TransactionsProvider = ({ children }) => {
             }
         } catch (error) {
             console.log(error);
+            if (error.message) alert(error.message.split(':')[1])
 
             throw new Error("No ethereum object");
         }

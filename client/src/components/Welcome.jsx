@@ -10,7 +10,8 @@ const Welcome = () => {
 
   // get these data from context api...
   const { connectWallet, currentAccount, handleChange, formData, sendTransaction, isLoading } = useTransactionContext();
-  console.log(isLoading)
+  // console.log(isLoading)
+  
   // css style apply by tailwind...
   const companyCommonStyles = "sm:px-0 px-2 sm:min-w-[120px] min-h-[70px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 

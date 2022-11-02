@@ -39,6 +39,7 @@ For smart contract :-
 * small responsive grid table with responsive border rounded
 * using of gradient from custom gradient generators
 * string address cutter ..... representation utility
+* write custom hooks for data fetching...
 
 
 ### Gradient Color Generator
