@@ -10,13 +10,14 @@ const useFetch = ({ keyword }) => {
 
         try {
 
-            const baseURL = 'https://api.giphy.com/v1/gifs/search';
-            const key = `?api_key=${API_KEY}`;
-            const query = `&q=${keyword.split(" ").join("")}`
-            const limit = `&limit=1`
-            // const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword.split(" ").join("")}&limit=1`;
-            const url = baseURL + key + query + limit;
-            console.log(url)
+            // const baseURL = 'https://api.giphy.com/v1/gifs/search';
+            // const apiKey  = `?api_key=${API_KEY}`;
+            // const query   = `&q=${keyword.split(" ").join("")}`
+            // const limit   = `&limit=1`
+            // const url     = baseURL + key + query + limit;
+
+            const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword.split(" ").join("")}&limit=1`;
+            
             const response = await fetch(url);
             const { data } = await response.json();
 

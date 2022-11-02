@@ -10,13 +10,12 @@
 * yarn add -D hardhat
 * yarn add -D @nomiclabs/hardhat-waffle
 * yarn add -D @nomiclabs/hardhat-ethers
-* yarn add -D ethers
-* yarn add -D ethereum-waffle
-
+* yarn add -D @nomiclabs/hardhat-etherscan 
 * yarn add -D @nomicfoundation/hardhat-toolbox
 * yarn add -D @nomicfoundation/hardhat-network-helpers 
 * yarn add -D @nomicfoundation/hardhat-chai-matchers 
-* yarn add -D @nomiclabs/hardhat-etherscan 
+* yarn add -D ethers
+* yarn add -D ethereum-waffle
 * yarn add -D solidity-coverage 
 * yarn add -D hardhat-gas-reporter 
 * yarn add -D typechain 
